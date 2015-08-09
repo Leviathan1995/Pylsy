@@ -10,27 +10,31 @@ class Ptable:
             row=dict()
             row[attribute]=""
             self.Table.append(row)
+    def PrintDivide(self):
+        for space in self.AttributesLength:
+            print "+",
+            for sign in range(space):
+                print "-",
+        print "+"
     def AddData(self,attribute,values):
         for row in self.Table:
             if row.has_key(attribute):
                 row[attribute]=values
     def CreateTable(self):
         for row in self.Table:
-            values=row.values()
+            values=row.values()[0]
+            if self.Linesnum<len(values):
+                self.Linesnum=len(values)
             Len=len(row.keys()[0])
             for value in values:
-                for item in value:
-                    length=len(item)
-                    if length>Len:
-                        Len=length
-                self.AttributesLength.append(Len)
+                length=len(value)
+                if length>Len:
+                    Len=length
+            self.AttributesLength.append(Len)
         self.PrintHead()
+        self.PrintValue()
     def PrintHead(self):
-        for space in self.AttributesLength:
-            print "+",
-            for sign in range(space):
-                print "-",
-        print "+"
+        self.PrintDivide()
         print "|",
         for spaces,attr in zip(self.AttributesLength,self.Attributes):
             spacenum=spaces*2-1
@@ -43,11 +47,30 @@ class Ptable:
                 print "",
             print "|",
         print ""
-        for space in self.AttributesLength:
-            print "+",
-            for sign in range(space):
-                print "-",
-        print "+"
+        self.PrintDivide()
+    def PrintValue(self):
+        for line in range(self.Linesnum):
+            for row,length in zip(self.Table,self.AttributesLength):
+                print "|",
+                valuelength=length*2-1
+                value=row.values()[0]
+                if len(value)!=0:
+                    start=(valuelength-len(value[line]))/2
+                    for space in range(start):
+                        print "",
+                    print value[line],
+                    end=valuelength-start-len(value[line])
+                    for space in range(end):
+                        print "",
+                else:
+                    start=0
+                    end=valuelength-start+1
+                    for sapce in range(end):
+                        print "",
+            print "|"
+            self.PrintDivide()
+
+
 
 
 
