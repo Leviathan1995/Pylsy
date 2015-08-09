@@ -1,37 +1,53 @@
 # -*- coding: utf-8 -*-
 class Ptable:
-    def __init__(self,type,attributenames):
-        self.Type=type
-        self.Attributenames=attributenames
+    def __init__(self,attributes):
+        self.Attributes=attributes
         self.Table=[]
-        for attr in attributenames:
-            levia=dict()
-            levia[attr]=""
-            self.Table.append(levia)
-    def AddData(self,attrname,content):
-            for table in self.Table:
-                if table.has_key(attrname):
-                    table[attrname]=content
-
+        self.AttributesLength=[]
+        self.Rowsnum=len(self.Attributes)
+        self.Linesnum=0
+        for attribute in self.Attributes:
+            row=dict()
+            row[attribute]=""
+            self.Table.append(row)
+    def AddData(self,attribute,values):
+        for row in self.Table:
+            if row.has_key(attribute):
+                row[attribute]=values
     def CreateTable(self):
-        for attr in self.Attributenames:
-            if self.Type=="Row":
-                AttributesLength=[]
-                for attrcontent in self.Table:
-                    contents=attrcontent.values()
-                    Len=0
-                    for content in contents:
-                        for item in content:
-                            length=len(item)
-                            if length>Len:
-                                Len=length
-                    AttributesLength.append(Len)
-                    for attr in self.Attributenames:
-                        for sign in range(len(AttributesLength)):
-                            signlen=AttributesLength[sign]
-                            print "+",
-                            for spacenum in range(signlen):
-                                print "-",
+        for row in self.Table:
+            values=row.values()
+            Len=len(row.keys()[0])
+            for value in values:
+                for item in value:
+                    length=len(item)
+                    if length>Len:
+                        Len=length
+                self.AttributesLength.append(Len)
+        self.PrintHead()
+    def PrintHead(self):
+        for space in self.AttributesLength:
+            print "+",
+            for sign in range(space):
+                print "-",
+        print "+"
+        print "|",
+        for spaces,attr in zip(self.AttributesLength,self.Attributes):
+            spacenum=spaces*2-1
+            start=(spacenum-len(attr))/2
+            for space in range(start):
+                print "",
+            print attr,
+            end=spacenum-start-len(attr)
+            for space in range(end):
+                print "",
+            print "|",
+        print ""
+        for space in self.AttributesLength:
+            print "+",
+            for sign in range(space):
+                print "-",
+        print "+"
 
 
 
@@ -40,8 +56,8 @@ class Ptable:
 
 
 def main():
-    table=Ptable("Row",["姓名","年龄"])
-    table.AddData("姓名",["孙海清","刘斯阳"])
+    table=Ptable(["name","age","sex","hobby"])
+    table.AddData("name",["sun","liu"])
     table.CreateTable()
 
 
