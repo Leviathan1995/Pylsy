@@ -18,8 +18,14 @@ class Ptable:
         print "+"
     def AddData(self,attribute,values):
         for row in self.Table:
+            dictvalues=[]
             if row.has_key(attribute):
-                row[attribute]=values
+                for index in range(len(values)):
+                    if type(values[index])!=str:
+                        dictvalues.append(str(values[index]))
+                    else:
+                        dictvalues.append(values[index])
+                row[attribute]=dictvalues
     def CreateTable(self):
         for row in self.Table:
             values=row.values()[0]
@@ -69,18 +75,10 @@ class Ptable:
                         print "",
             print "|"
             self.PrintDivide()
-
-
-
-
-
-
-
-
-
 def main():
     table=Ptable(["name","age","sex","hobby"])
-    table.AddData("name",["sun","liu"])
+    table.AddData("name",["sunhaiqing","liusiyang"])
+    table.AddData("age",[20,21])
     table.CreateTable()
 
 
