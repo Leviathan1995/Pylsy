@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
-    name='pylsy',
-    packages=['pylsy'],
+    name='Pylsy',
+    packages=['pylsy']
     version="1.2",
     description='A simple Python library for easily displaying tabular data ina visually appealing ASCII table format',
     author='leviathan',
