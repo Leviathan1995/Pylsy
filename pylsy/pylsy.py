@@ -4,7 +4,7 @@ class PylsyTable:
         self.Attributes=attributes
         self.Table=[]
         self.AttributesLength=[]
-        self.Rowsnum=len(self.Attributes)
+        self.Colsnum=len(self.Attributes)
         self.Linesnum=0
         for attribute in self.Attributes:
             row=dict()
@@ -31,11 +31,8 @@ class PylsyTable:
             values=row.values()[0]
             if self.Linesnum<len(values):
                 self.Linesnum=len(values)
-            Len=len(row.keys()[0])
-            for value in values:
-                length=len(value)
-                if length>Len:
-                    Len=length
+            # find the length of longest word in current column
+            Len = len(max(row.keys()+row.values()[0], key=len))
             self.AttributesLength.append(Len)
         self.PrintHead()
         self.PrintValue()

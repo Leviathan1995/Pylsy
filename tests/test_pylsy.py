@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'leviathan'
-from  pylsy import PylsyTable
+from pylsy import PylsyTable
 def main():
     attributes=["name","age","sex","id","time"]
     table=PylsyTable(attributes)
