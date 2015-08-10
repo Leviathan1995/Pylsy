@@ -4,7 +4,7 @@ class PylsyTable:
         self.Attributes=attributes
         self.Table=[]
         self.AttributesLength=[]
-        self.Rowsnum=len(self.Attributes)
+        self.Colsnum=len(self.Attributes)
         self.Linesnum=0
         for attribute in self.Attributes:
             row=dict()
@@ -29,6 +29,7 @@ class PylsyTable:
     def CreateTable(self):
         for row in self.Table:
             values=row.values()[0]
+            print row.values()
             if self.Linesnum<len(values):
                 self.Linesnum=len(values)
             Len=len(row.keys()[0])
