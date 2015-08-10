@@ -29,7 +29,6 @@ class PylsyTable:
     def CreateTable(self):
         for row in self.Table:
             values=row.values()[0]
-            print row.values()
             if self.Linesnum<len(values):
                 self.Linesnum=len(values)
             Len=len(row.keys()[0])
