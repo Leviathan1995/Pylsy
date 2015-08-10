@@ -7,9 +7,9 @@ class PylsyTable:
         self.Colsnum=len(self.Attributes)
         self.Linesnum=0
         for attribute in self.Attributes:
-            row=dict()
-            row[attribute]=""
-            self.Table.append(row)
+            col=dict()
+            col[attribute]=""
+            self.Table.append(col)
     def PrintDivide(self):
         for space in self.AttributesLength:
             print "+",
@@ -17,22 +17,22 @@ class PylsyTable:
                 print "-",
         print "+"
     def AddData(self,attribute,values):
-        for row in self.Table:
+        for col in self.Table:
             dictvalues=[]
-            if row.has_key(attribute):
+            if col.has_key(attribute):
                 for index in range(len(values)):
                     if type(values[index])!=str:
                         dictvalues.append(str(values[index]))
                     else:
                         dictvalues.append(values[index])
-                row[attribute]=dictvalues
+                col[attribute]=dictvalues
     def CreateTable(self):
-        for row in self.Table:
-            values=row.values()[0]
+        for col in self.Table:
+            values=col.values()[0]
             if self.Linesnum<len(values):
                 self.Linesnum=len(values)
             # find the length of longest word in current column
-            Len=len(row.keys()[0])
+            Len=len(col.keys()[0])
 -           for value in values:
                 length=len(value)		
 -               if length>Len:	
@@ -57,10 +57,10 @@ class PylsyTable:
         self.PrintDivide()
     def PrintValue(self):
         for line in range(self.Linesnum):
-            for row,length in zip(self.Table,self.AttributesLength):
+            for col,length in zip(self.Table,self.AttributesLength):
                 print "|",
                 valuelength=length*2-1
-                value=row.values()[0]
+                value=col.values()[0]
                 if len(value)!=0:
                     start=(valuelength-len(value[line]))/2
                     for space in range(start):
