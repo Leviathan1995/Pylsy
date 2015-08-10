@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 __author__ = 'leviathan'
-import pylsy
-
+import sys
+import os
+sys.path.insert(0, '.')
+sys.path.insert(0, '../')
+from  pylsy.pylsy import PylsyTable
 def main():
     attributes=["name","age","sex"]
-    table=pylsyTable(attributes)
+    table=PylsyTable(attributes)
     name=["sun","lsy"]
     table.AddData("name",name)
     age=[20,21]
