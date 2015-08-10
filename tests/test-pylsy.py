@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 __author__ = 'leviathan'
-import sys
-import os
-sys.path.insert(0, '.')
-sys.path.insert(0, '../')
 from  pylsy.pylsy import PylsyTable
 def main():
     attributes=["name","age","sex"]
