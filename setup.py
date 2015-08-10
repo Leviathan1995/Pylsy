@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name='pylsy',
     packages=['pylsy'],
-    version='1.0',
+    version='1.1',
     description='A simple Python library for easily displaying tabular data ina visually appealing ASCII table format',
     author='leviathan',
     author_email='leviathan1995@outlook.com',

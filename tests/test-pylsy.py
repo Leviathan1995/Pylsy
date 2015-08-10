@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 __author__ = 'leviathan'
-from ptable import Ptable
-
+import pylsy
 
 def main():
     attributes=["name","age","sex"]
-    table=Ptable(attributes)
+    table=pylsyTable(attributes)
     name=["sun","lsy"]
     table.AddData("name",name)
     age=[20,21]

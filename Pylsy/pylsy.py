@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class Ptable:
+class PylsyTable:
     def __init__(self,attributes):
         self.Attributes=attributes
         self.Table=[]
