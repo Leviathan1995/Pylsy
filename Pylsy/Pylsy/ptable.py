@@ -75,12 +75,3 @@ class Ptable:
                         print "",
             print "|"
             self.PrintDivide()
-def main():
-    table=Ptable(["name","age","sex","hobby"])
-    table.AddData("name",["sunhaiqing","liusiyang"])
-    table.AddData("age",[20,21])
-    table.CreateTable()
-
-
-if __name__=='__main__':
-    main()
