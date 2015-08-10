@@ -18,13 +18,13 @@ class PylsyTable:
         print "+"
     def AddData(self,attribute,values):
         for col in self.Table:
-            dictvalues=[]
             if col.has_key(attribute):
-                for index in range(len(values)):
-                    if type(values[index])!=str:
-                        dictvalues.append(str(values[index]))
+                dictvalues=[]
+                for value in values:
+                    if type(value)!=str:
+                        dictvalues.append(str(value))
                     else:
-                        dictvalues.append(values[index])
+                        dictvalues.append(value)
                 col[attribute]=dictvalues
     def CreateTable(self):
         for col in self.Table:
