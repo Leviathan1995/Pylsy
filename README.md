@@ -23,7 +23,7 @@ Pylsy is a simple Python library designed to make it quick and easy to represent
        table.CreateTable()
            
 <h2>License</h2>
-    [MIT](https://github.com/Leviathan1995/Pylsy/blob/master/LICENSE)
+    [MIT](https://github.com/Leviathan1995/Pylsy/raw/master/LICENSE)
 
 
 
