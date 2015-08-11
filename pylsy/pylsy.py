@@ -12,10 +12,10 @@ class PylsyTable:
             self.Table.append(col)
     def PrintDivide(self):
         for space in self.AttributesLength:
-            print "+",
+            print("+"),
             for sign in range(space):
-                print "-",
-        print "+"
+                print("-"),
+        print("+")
     def AddData(self,attribute,values):
         for col in self.Table:
             if col.has_key(attribute):
@@ -42,37 +42,37 @@ class PylsyTable:
         self.PrintValue()
     def PrintHead(self):
         self.PrintDivide()
-        print "|",
+        print("|"),
         for spaces,attr in zip(self.AttributesLength,self.Attributes):
             spacenum=spaces*2-1
             start=(spacenum-len(attr))/2
             for space in range(start):
-                print "",
-            print attr,
+                print(""),
+            print(attr),
             end=spacenum-start-len(attr)
             for space in range(end):
-                print "",
-            print "|",
-        print ""
+                print(""),
+            print("|"),
+        print("")
         self.PrintDivide()
     def PrintValue(self):
         for line in range(self.Linesnum):
             for col,length in zip(self.Table,self.AttributesLength):
-                print "|",
+                print("|"),
                 valuelength=length*2-1
                 value=col.values()[0]
                 if len(value)!=0:
                     start=(valuelength-len(value[line]))/2
                     for space in range(start):
-                        print "",
-                    print value[line],
+                        print(""),
+                    print(value[line]),
                     end=valuelength-start-len(value[line])
                     for space in range(end):
-                        print "",
+                        print(""),
                 else:
                     start=0
                     end=valuelength-start+1
                     for sapce in range(end):
-                        print "",
-            print "|"
+                        print(""),
+            print("|")
             self.PrintDivide()
