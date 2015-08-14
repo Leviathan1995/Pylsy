@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+
 class PylsyTable:
     def __init__(self,attributes):
         self.Attributes=attributes
@@ -12,13 +14,13 @@ class PylsyTable:
             self.Table.append(col)
     def PrintDivide(self):
         for space in self.AttributesLength:
-            print("+"),
+            print("+ ", end='')
             for sign in range(space):
-                print("-"),
+                print("- ", end='')
         print("+")
     def AddData(self,attribute,values):
         for col in self.Table:
-            if col.has_key(attribute):
+            if attribute in col:
                 dictvalues=[]
                 for value in values:
                     if type(value)!=str:
@@ -28,51 +30,51 @@ class PylsyTable:
                 col[attribute]=dictvalues
     def CreateTable(self):
         for col in self.Table:
-            values=col.values()[0]
+            values=list(col.values())[0]
             if self.Linesnum<len(values):
                 self.Linesnum=len(values)
             # find the length of longest word in current column
-            Len=len(col.keys()[0])
+            Len=len(list(col.keys())[0])
             for value in values:
-                length=len(value)		
-                if length>Len:	
+                length=len(value)
+                if length>Len:
                     Len=length
             self.AttributesLength.append(Len)
         self.PrintHead()
         self.PrintValue()
     def PrintHead(self):
         self.PrintDivide()
-        print("|"),
+        print("| ", end='')
         for spaces,attr in zip(self.AttributesLength,self.Attributes):
             spacenum=spaces*2-1
-            start=(spacenum-len(attr))/2
+            start=(spacenum-len(attr))//2
             for space in range(start):
-                print(""),
-            print(attr),
+                print(" ", end='')
+            print(attr + ' ', end='')
             end=spacenum-start-len(attr)
             for space in range(end):
-                print(""),
-            print("|"),
+                print(" ", end='')
+            print("| ", end='')
         print("")
         self.PrintDivide()
     def PrintValue(self):
         for line in range(self.Linesnum):
             for col,length in zip(self.Table,self.AttributesLength):
-                print("|"),
+                print("| ", end='')
                 valuelength=length*2-1
-                value=col.values()[0]
+                value=list(col.values())[0]
                 if len(value)!=0:
-                    start=(valuelength-len(value[line]))/2
+                    start=(valuelength-len(value[line]))//2
                     for space in range(start):
-                        print(""),
-                    print(value[line]),
+                        print(" ", end='')
+                    print(value[line] + ' ', end='')
                     end=valuelength-start-len(value[line])
                     for space in range(end):
-                        print(""),
+                        print(" ", end='')
                 else:
                     start=0
                     end=valuelength-start+1
                     for sapce in range(end):
-                        print(""),
+                        print(" ", end='')
             print("|")
             self.PrintDivide()
