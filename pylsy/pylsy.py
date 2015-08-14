@@ -1,78 +1,86 @@
 # -*- coding: utf-8 -*-
-class PylsyTable:
-    def __init__(self,attributes):
-        self.Attributes=attributes
-        self.Table=[]
-        self.AttributesLength=[]
-        self.Colsnum=len(self.Attributes)
-        self.Linesnum=0
+from __future__ import print_function
+
+
+class PylsyTable(object):
+    def __init__(self, attributes):
+        self.Attributes = attributes
+        self.Table = []
+        self.AttributesLength = []
+        self.cols_num = len(self.Attributes)
+        self.lines_num = 0
         for attribute in self.Attributes:
-            col=dict()
-            col[attribute]=""
+            col = dict()
+            col[attribute] = ""
             self.Table.append(col)
-    def PrintDivide(self):
+
+    def print_divide(self):
         for space in self.AttributesLength:
-            print "+",
+            print("+ ", end='')
             for sign in range(space):
-                print "-",
-        print "+"
-    def AddData(self,attribute,values):
+                print("- ", end='')
+        print("+")
+
+    def add_data(self, attribute, values):
         for col in self.Table:
-            if col.has_key(attribute):
-                dictvalues=[]
+            if attribute in col:
+                dict_values = []
                 for value in values:
-                    if type(value)!=str:
-                        dictvalues.append(str(value))
+                    if type(value) != str:
+                        dict_values.append(str(value))
                     else:
-                        dictvalues.append(value)
-                col[attribute]=dictvalues
-    def CreateTable(self):
+                        dict_values.append(value)
+                col[attribute] = dict_values
+
+    def create_table(self):
         for col in self.Table:
-            values=col.values()[0]
-            if self.Linesnum<len(values):
-                self.Linesnum=len(values)
+            values = list(col.values())[0]
+            if self.lines_num < len(values):
+                self.lines_num = len(values)
             # find the length of longest word in current column
-            Len=len(col.keys()[0])
+            key_length = len(list(col.keys())[0])
             for value in values:
-                length=len(value)		
-                if length>Len:	
-                    Len=length
-            self.AttributesLength.append(Len)
-        self.PrintHead()
-        self.PrintValue()
-    def PrintHead(self):
-        self.PrintDivide()
-        print "|",
-        for spaces,attr in zip(self.AttributesLength,self.Attributes):
-            spacenum=spaces*2-1
-            start=(spacenum-len(attr))/2
+                length = len(value)
+                if length > key_length:
+                    key_length = length
+            self.AttributesLength.append(key_length)
+        self.print_head()
+        self.print_value()
+
+    def print_head(self):
+        self.print_divide()
+        print("| ", end='')
+        for spaces, attr in zip(self.AttributesLength, self.Attributes):
+            space_num = spaces * 2 - 1
+            start = (space_num - len(attr)) // 2
             for space in range(start):
-                print "",
-            print attr,
-            end=spacenum-start-len(attr)
+                print(" ", end='')
+            print(attr + ' ', end='')
+            end = space_num - start - len(attr)
             for space in range(end):
-                print "",
-            print "|",
-        print ""
-        self.PrintDivide()
-    def PrintValue(self):
-        for line in range(self.Linesnum):
-            for col,length in zip(self.Table,self.AttributesLength):
-                print "|",
-                valuelength=length*2-1
-                value=col.values()[0]
-                if len(value)!=0:
-                    start=(valuelength-len(value[line]))/2
+                print(" ", end='')
+            print("| ", end='')
+        print("")
+        self.print_divide()
+
+    def print_value(self):
+        for line in range(self.lines_num):
+            for col, length in zip(self.Table, self.AttributesLength):
+                print("| ", end='')
+                value_length = length * 2 - 1
+                value = list(col.values())[0]
+                if len(value) != 0:
+                    start = (value_length - len(value[line])) // 2
                     for space in range(start):
-                        print "",
-                    print value[line],
-                    end=valuelength-start-len(value[line])
+                        print(" ", end='')
+                    print(value[line] + ' ', end='')
+                    end = value_length - start - len(value[line])
                     for space in range(end):
-                        print "",
+                        print(" ", end='')
                 else:
-                    start=0
-                    end=valuelength-start+1
-                    for sapce in range(end):
-                        print "",
-            print "|"
-            self.PrintDivide()
+                    start = 0
+                    end = value_length - start + 1
+                    for space in range(end):
+                        print(" ", end='')
+            print("|")
+            self.print_divide()

@@ -18,10 +18,10 @@ Pylsy is a simple Python library designed to make it quick and easy to represent
 <h6>Then, you need create a list, the list includes the value of an attribtue</h6>
        name=["sun","lsy","luna","leviathan"]
 <h6>Finally, you need to add values to the table </h6>
-       table.AddData("name",name)
+       table.add_data("name",name)
 <h6>Now, you can create the ASCII table</h6>
-       table.CreateTable()
-           
+       table.create_table()
+
 <h2>License</h2>
        MIT
 
