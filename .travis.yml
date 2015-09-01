@@ -6,3 +6,4 @@ install:
 
 script:
     - "pep8 ."
+    - "bash runtest.sh "
