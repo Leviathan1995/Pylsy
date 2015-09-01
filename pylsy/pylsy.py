@@ -24,7 +24,16 @@ class PylsyTable(object):
     def add_data(self, attribute, values):
         for col in self.Table:
             if attribute in col:
+<<<<<<< HEAD
                 dict_values = [str(value) for value in values]
+=======
+                dict_values = []
+                for value in values:
+                    if type(value) != str:
+                        dict_values.append(str(value))
+                    else:
+                        dict_values.append(value)
+>>>>>>> caa7dad6f990c339e66618bb57b77fdac27a37f8
                 col[attribute] = dict_values
 
     def create_table(self):
