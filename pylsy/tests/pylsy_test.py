@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import unittest
-from pylsy import PylsyTable
+from pylsy.pylsy import PylsyTable
 
 
 class PylsyTableTests(unittest.TestCase):
@@ -18,7 +18,7 @@ class PylsyTableTests(unittest.TestCase):
         self.table.add_data("name", name)
         age = [1, 2]
         self.table.add_data("age", age)
-        correct_file = open('correct.out', 'r')
+        correct_file = open('./pylsy/tests/correct.out', 'r')
         correctPrint = correct_file.read()
         try:
             import io
