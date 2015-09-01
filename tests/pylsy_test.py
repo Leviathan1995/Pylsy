@@ -3,20 +3,21 @@ from __future__ import absolute_import
 import unittest
 from pylsy.pylsy import PylsyTable
 
+
 class PylsyTableTests(unittest.TestCase):
 
     def setUp(self):
-        attributes=["name","age"]
+        attributes = ["name", "age"]
         self.table = PylsyTable(attributes)
 
     def tearDown(self):
         self.table = None
 
     def testCreateTable(self):
-        name=["a", "b"]
-        self.table.add_data("name",name)
-        age=[1, 2]
-        self.table.add_data("age",age)
+        name = ["a", "b"]
+        self.table.add_data("name", name)
+        age = [1, 2]
+        self.table.add_data("age", age)
         correct_file = open('correct.out', 'r')
         correctPrint = correct_file.read()
         try:
@@ -29,7 +30,7 @@ class PylsyTableTests(unittest.TestCase):
         except ImportError:
             import sys
             f_handler = open('test.out', 'w')
-            sys.stdout=f_handler
+            sys.stdout = f_handler
             self.table.create_table()
             f_handler.close()
             f_handler = open('test.out', 'r')
@@ -37,5 +38,3 @@ class PylsyTableTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
