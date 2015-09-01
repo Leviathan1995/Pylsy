@@ -1,3 +1,4 @@
 #__init__.py
-from .pylsy import PylsyTable
+from __future__ import absolute_import
+from pylsy.pylsy import PylsyTable
 __version__="1.003"
