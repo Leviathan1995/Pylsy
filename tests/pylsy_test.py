@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-__author__ = 'choleraehyq'
 import unittest
 from pylsy.pylsy import PylsyTable
 
