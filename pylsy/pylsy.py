@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-
 class PylsyTable(object):
     def __init__(self, attributes):
         self.Attributes = attributes
