@@ -8,6 +8,6 @@ setup(
     name='Pylsy',
     packages=['pylsy'],
     version="1.003",
-    description='A simple Python library for easily displaying tabular data ina visually appealing ASCII table format',
+    description='Pylsy is a simple Python library draw tables in the Terminal.Just tow lines of code',
     url='https://github.com/Leviathan1995/Pylsy',
 )
