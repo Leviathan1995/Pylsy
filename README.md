@@ -1,5 +1,7 @@
 #  Pylsy
 
+[![Build Status](https://travis-ci.org/Leviathan1995/Pylsy.svg?branch=master)](https://travis-ci.org/Leviathan1995/Pylsy)
+
 Pylsy is a simple Python library draw tables in the terminal/console.Just two lines of code! 
 
  ![image](https://github.com/Leviathan1995/Pylsy/raw/master/zic/span.png)
