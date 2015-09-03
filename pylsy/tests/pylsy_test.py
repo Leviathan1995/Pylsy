@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 import unittest
-from pylsy.pylsy import pylsytable
+from pylsy import pylsytable
 
 
 class PylsyTableTests(unittest.TestCase):
