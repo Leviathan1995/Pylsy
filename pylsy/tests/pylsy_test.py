@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
-
 from __future__ import absolute_import
 import unittest
-import sys
-sys.path.append('..')
-from pylsy import pylsytable
+from pylsy.pylsy import PylsyTable
 
 
 class PylsyTableTests(unittest.TestCase):
 
     def setUp(self):
         attributes = ["name", "age"]
-        self.table = pylsytable(attributes)
+        self.table = PylsyTable(attributes)
 
     def tearDown(self):
         self.table = None
@@ -21,7 +18,7 @@ class PylsyTableTests(unittest.TestCase):
         self.table.add_data("name", name)
         age = [1, 2]
         self.table.add_data("age", age)
-        correct_file = open('correct.out', 'r')
+        correct_file = open('./pylsy/tests/correct.out', 'r')
         correctPrint = correct_file.read()
         try:
             import io
@@ -34,7 +31,7 @@ class PylsyTableTests(unittest.TestCase):
             import sys
             f_handler = open('test.out', 'w')
             sys.stdout = f_handler
-            print(self.table)
+            self.table.create_table()
             f_handler.close()
             f_handler = open('test.out', 'r')
             self.assertEqual(f_handler.read(), correctPrint)
