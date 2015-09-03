@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import unittest
 
 import sys
-sys.path.append('..')
+sys.path.append('.')
 from pylsy import pylsytable
 
 
