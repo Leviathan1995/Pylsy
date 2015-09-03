@@ -6,7 +6,7 @@ from __future__ import print_function
 class pylsytable(object):
 
     def __init__(self, attributes):
-        self.StrTable=""
+        self.StrTable = ""
         self.Attributes = attributes
         self.Table = []
         self.AttributesLength = []
@@ -48,7 +48,7 @@ class pylsytable(object):
 
     def print_head(self):
         self.print_divide()
-        self.StrTable+="| "
+        self.StrTable += "| "
         for spaces, attr in zip(self.AttributesLength, self.Attributes):
             space_num = spaces * 2 - 1
             start = (space_num - len(attr)) // 2
