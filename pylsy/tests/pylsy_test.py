@@ -22,10 +22,10 @@ class PylsyTableTests(unittest.TestCase):
         correct_file = open('correct.out', 'r')
         correctPrint = correct_file.read()
         try:
-            #import io
-            #from contextlib import redirect_stdout
-            #with io.StringIO() as buf, redirect_stdout(buf):
-                #print(self.table,end='')
+            # import io
+            # from contextlib import redirect_stdout
+            # with io.StringIO() as buf, redirect_stdout(buf):
+                # print(self.table,end='')
             output = self.table.__str__()
             self.assertEqual(output, correctPrint)
         except ImportError:
