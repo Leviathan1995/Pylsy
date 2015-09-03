@@ -21,7 +21,7 @@ class PylsyTableTests(unittest.TestCase):
         self.table.add_data("name", name)
         age = [1, 2]
         self.table.add_data("age", age)
-        correct_file = open('./pylsy/tests/correct.out', 'r')
+        correct_file = open('correct.out', 'r')
         correctPrint = correct_file.read()
         try:
             import io
