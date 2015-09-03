@@ -2,14 +2,14 @@
 
 from __future__ import absolute_import
 import unittest
-from pylsy import PylsyTable
+from pylsy import pylsytable
 
 
 class PylsyTableTests(unittest.TestCase):
 
     def setUp(self):
         attributes = ["name", "age"]
-        self.table = PylsyTable(attributes)
+        self.table = pylsytable(attributes)
 
     def tearDown(self):
         self.table = None
