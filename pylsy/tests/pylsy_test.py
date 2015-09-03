@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
-sys.path.append('..')
 from __future__ import absolute_import
 import unittest
 from pylsy import PylsyTable
