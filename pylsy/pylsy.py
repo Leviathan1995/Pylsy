@@ -3,7 +3,7 @@
 from __future__ import print_function
 
 
-class pylsytable(object):
+class PylsyTable(object):
 
     def __init__(self, attributes):
         self.StrTable = ""
