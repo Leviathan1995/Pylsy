@@ -19,10 +19,10 @@ class pylsytable(object):
 
     def print_divide(self):
         for space in self.AttributesLength:
-            self.StrTable+="+ "
+            self.StrTable += "+ "
             for sign in range(space):
-                self.StrTable+="- "
-        self.StrTable+="+"+"\n"
+                self.StrTable += "- "
+        self.StrTable += "+"+"\n"
 
     def add_data(self, attribute, values):
         for col in self.Table:
@@ -53,35 +53,35 @@ class pylsytable(object):
             space_num = spaces * 2 - 1
             start = (space_num - len(attr)) // 2
             for space in range(start):
-                self.StrTable+=" "
-            self.StrTable+=attr+' '
+                self.StrTable += " "
+            self.StrTable += attr+' '
             end = space_num - start - len(attr)
             for space in range(end):
-                self.StrTable+=" "
-            self.StrTable+="| "
-        self.StrTable+=""+'\n'
+                self.StrTable += " "
+            self.StrTable += "| "
+        self.StrTable += ""+'\n'
         self.print_divide()
 
     def print_value(self):
         for line in range(self.Lines_num):
             for col, length in zip(self.Table, self.AttributesLength):
-                self.StrTable+="| "
+                self.StrTable += "| "
                 value_length = length * 2 - 1
                 value = list(col.values())[0]
                 if len(value) != 0:
                     start = (value_length - len(value[line])) // 2
                     for space in range(start):
-                        self.StrTable+=" "
-                    self.StrTable+=value[line]+' '
+                        self.StrTable += " "
+                    self.StrTable += value[line]+' '
                     end = value_length - start - len(value[line])
                     for space in range(end):
-                        self.StrTable+=" "
+                        self.StrTable += " "
                 else:
                     start = 0
                     end = value_length - start + 1
                     for space in range(end):
-                        self.StrTable+=" "
-            self.StrTable+="|"+'\n'
+                        self.StrTable += " "
+            self.StrTable += "|"+'\n'
             self.print_divide()
 
     def __str__(self):
