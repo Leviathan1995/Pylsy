@@ -1,3 +1,3 @@
 #!/bin/sh
 cd pylsy/tests
-python -m pylsy.tests.pylsy_test
+python -m pylsy_test
