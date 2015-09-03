@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
+
 import sys
 import unittest
 sys.path.append('..')
-from __future__ import absolute_import
 from pylsy import pylsytable
 
 
