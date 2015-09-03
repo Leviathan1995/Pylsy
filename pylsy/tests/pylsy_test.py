@@ -3,9 +3,9 @@
 from __future__ import absolute_import
 import unittest
 
+from pylsy import pylsytable
 import sys
 sys.path.append('..')
-from pylsy import pylsytable
 
 
 class PylsyTableTests(unittest.TestCase):
