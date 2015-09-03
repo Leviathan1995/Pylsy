@@ -12,7 +12,7 @@ Pylsy is a simple Python library for drawing tables in the terminal/console. Jus
 
 <h2>Sample Usage</h2>
 <h6>At the very first start, pylsy needs to be imported</h6>
-       from pylsy import PylsyTable
+       from pylsy import pylsytable
 <h6>First, you need to create a list, which will contain the table attributes</h6>
        attributes=["name","age","sex","id","time"]
 <h6>In the second step, you need to use PylsyTable to create the ASCII table </h6>
@@ -22,7 +22,7 @@ Pylsy is a simple Python library for drawing tables in the terminal/console. Jus
 <h6>Then, add the values to the table </h6>
        table.add_data("name",name)
 <h6>After populating each attribute and adding the values to the table, you can create the ASCII table</h6>
-       table.create_table()
+       print(table)
 
 <h2>License</h2>
        MIT
