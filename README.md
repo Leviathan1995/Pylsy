@@ -16,7 +16,7 @@ Pylsy is a simple Python library for drawing tables in the terminal/console. Jus
 <h6>First, you need to create a list, which will contain the table attributes</h6>
        attributes=["name","age","sex","id","time"]
 <h6>In the second step, you need to use PylsyTable to create the ASCII table </h6>
-       table=PylsyTable(attributes)
+       table=pylsytable(attributes)
 <h6>Then, you need to populate the values for each attribute and add the values to the table. Populating the values for the attribute "name" is shown below</h6>
        name=["sun","lsy","luna","leviathan"]
 <h6>Then, add the values to the table </h6>
