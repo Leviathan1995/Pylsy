@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+
 from __future__ import absolute_import
 import unittest
-from pylsy.pylsy import PylsyTable
+from pylsy.pylsy import pylsytable
 
 
 class PylsyTableTests(unittest.TestCase):
 
     def setUp(self):
         attributes = ["name", "age"]
-        self.table = PylsyTable(attributes)
+        self.table = pylsytable(attributes)
 
     def tearDown(self):
         self.table = None
@@ -31,7 +32,7 @@ class PylsyTableTests(unittest.TestCase):
             import sys
             f_handler = open('test.out', 'w')
             sys.stdout = f_handler
-            self.table.create_table()
+            print(self.table)
             f_handler.close()
             f_handler = open('test.out', 'r')
             self.assertEqual(f_handler.read(), correctPrint)
