@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import unittest
-from pylsy.pylsy import PylsyTable
+import sys
+sys.path.append('..')
+from pylsy import PylsyTable
 
 
 class PylsyTableTests(unittest.TestCase):
