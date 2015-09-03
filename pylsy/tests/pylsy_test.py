@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import
+import unittest
 
 import sys
-import unittest
 sys.path.append('..')
-
 from pylsy import pylsytable
 
 
