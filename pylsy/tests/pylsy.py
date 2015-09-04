@@ -31,6 +31,8 @@ class pylsytable(object):
                 col[attribute] = dict_values
 
     def create_table(self):
+        self.StrTable = ""
+        self.AttributesLength = []
         for col in self.Table:
             values = list(col.values())[0]
             if self.Lines_num < len(values):
@@ -69,13 +71,19 @@ class pylsytable(object):
                 value_length = length * 2 - 1
                 value = list(col.values())[0]
                 if len(value) != 0:
-                    start = (value_length - len(value[line])) // 2
-                    for space in range(start):
-                        self.StrTable += " "
-                    self.StrTable += value[line]+' '
-                    end = value_length - start - len(value[line])
-                    for space in range(end):
-                        self.StrTable += " "
+                    if line < len(value):
+                        start = (value_length - len(value[line])) // 2
+                        for space in range(start):
+                            self.StrTable += " "
+                        self.StrTable += value[line]+' '
+                        end = value_length - start - len(value[line])
+                        for space in range(end):
+                            self.StrTable += " "
+                    else:
+                        start = 0
+                        end = value_length - start + 1
+                        for space in range(end):
+                            self.StrTable += " "
                 else:
                     start = 0
                     end = value_length - start + 1
