@@ -7,7 +7,7 @@ except ImportError:
 setup(
     name='Pylsy',
     packages=['pylsy'],
-    version="1.1",
+    version="1.11",
     description='Pylsy is a simple  library draw tables in the Terminal.',
     author='leviathan',
     author_email='leviathan1995@outlook.com',
