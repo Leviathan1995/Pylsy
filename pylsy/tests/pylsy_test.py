@@ -20,8 +20,9 @@ class PylsyTableTests(unittest.TestCase):
         self.table = None
 
     def testCreateTable(self):
-        name = ["a", "b"]
+        name = ["a"]
         self.table.add_data("name", name)
+        self.table.append_date("name","b")
         age = [1, 2]
         self.table.add_data("age", age)
 
