@@ -14,7 +14,7 @@ class pylsytable(object):
         self.Lines_num = 0
         for attribute in self.Attributes:
             col = dict()
-            col[attribute] = ""
+            col[attribute] = []
             self.Table.append(col)
 
     def print_divide(self):
@@ -23,6 +23,12 @@ class pylsytable(object):
             for sign in range(space):
                 self.StrTable += "- "
         self.StrTable += "+"+"\n"
+
+    def append_data(self, attribute, values):
+        for col in self.Table:
+            if attribute in col:
+                dict_values = [str(value) for value in values]
+                col[attribute] += dict_values
 
     def add_data(self, attribute, values):
         for col in self.Table:
