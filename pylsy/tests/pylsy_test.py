@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import
+
+import os
 import unittest
 from pylsy import pylsytable
+
+
+TEST_DIR = os.path.dirname(__file__)
 
 
 class PylsyTableTests(unittest.TestCase):
@@ -19,23 +24,9 @@ class PylsyTableTests(unittest.TestCase):
         self.table.add_data("name", name)
         age = [1, 2]
         self.table.add_data("age", age)
-        correct_file = open('correct.out', 'r')
-        correctPrint = correct_file.read()
-        try:
-            # import io
-            # from contextlib import redirect_stdout
-            # with io.StringIO() as buf, redirect_stdout(buf):
-                # print(self.table,end='')
-            output = self.table.__str__()
-            self.assertEqual(output, correctPrint)
-        except ImportError:
-            import sys
-            f_handler = open('test.out', 'w')
-            sys.stdout = f_handler
-            self.table.create_table()
-            f_handler.close()
-            f_handler = open('test.out', 'r')
-            self.assertEqual(f_handler.read(), correctPrint)
+
+        with open(os.path.join(TEST_DIR, "correct.out"), "r") as correct_file:
+            self.assertEqual(self.table.__str__(), correct_file.read())
 
 if __name__ == '__main__':
     unittest.main()
