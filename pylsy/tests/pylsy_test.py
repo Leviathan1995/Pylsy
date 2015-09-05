@@ -22,7 +22,7 @@ class PylsyTableTests(unittest.TestCase):
     def testCreateTable(self):
         name = ["a"]
         self.table.add_data("name", name)
-        self.table.append_date("name","b")
+        self.table.append_data("name","b")
         age = [1, 2]
         self.table.add_data("age", age)
 
