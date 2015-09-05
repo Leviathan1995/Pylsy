@@ -25,10 +25,16 @@ class pylsytable(object):
         self.StrTable += "+"+"\n"
 
     def append_data(self, attribute, values):
-        for col in self.Table:
-            if attribute in col:
-                dict_values = [str(value) for value in values]
-                col[attribute] += dict_values
+        values_type = type(values)
+        if values_type == str:
+            for col in self.Table:
+                if attribute in col:
+                    col[attribute].append(values)
+        elif values_type == list:
+            for col in self.Table:
+                if attribute in col:
+                    dict_values = [str(value) for value in values]
+                    col[attribute] += dict_values
 
     def add_data(self, attribute, values):
         for col in self.Table:
