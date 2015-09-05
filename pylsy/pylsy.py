@@ -45,6 +45,8 @@ class pylsytable(object):
     def create_table(self):
         self.StrTable = ""
         self.AttributesLength = []
+        self.Lines_num = 0
+
         for col in self.Table:
             values = list(col.values())[0]
             if self.Lines_num < len(values):
