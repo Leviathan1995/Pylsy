@@ -6,8 +6,8 @@ python:
     - pypy
 
 install:
-    - pip install --user pep8
-    - pip install --user .
+    - pip install pep8
+    - pip install .
 
 script:
     - "pep8 ."
