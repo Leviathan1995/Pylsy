@@ -11,13 +11,14 @@ from wcwidth import wcwidth
 class pylsytable(object):
 
     def __init__(self, attributes):
+        """Creates a new PylsyTable object with the given attrs (cols)."""
         self.StrTable = ""
         self.Table = []
         self.AttributesLength = []
         self.Lines_num = 0
         if type(attributes) != list:
             attributes = [attributes]
-        self.Attributes = attributes
+        self.Attributes = [u"{0}".format(attr) for attr in attributes]
         self.Cols_num = len(self.Attributes)
         for attribute in self.Attributes:
             col = dict()
@@ -25,11 +26,13 @@ class pylsytable(object):
             self.Table.append(col)
 
     def _print_divide(self):
+        """Prints all those table line dividers."""
         for space in self.AttributesLength:
             self.StrTable += "+ " + "- " * space
         self.StrTable += "+"+"\n"
 
     def append_data(self, attribute, values):
+        """Appends the given value(s) to the attribute (column)."""
         found = False
         if type(values) != list:
             values = [values]
@@ -42,6 +45,7 @@ class pylsytable(object):
             raise KeyError(attribute)
 
     def add_data(self, attribute, values):
+        """Sets the given values for the attribute (column)."""
         found = False
         if type(values) != list:
             values = [values]
@@ -54,10 +58,14 @@ class pylsytable(object):
             raise KeyError(attribute)
 
     def _create_table(self):
+        """
+        Creates a pretty-printed string representation of the table as
+        ``self.StrTable``.
+        """
         self.StrTable = ""
         self.AttributesLength = []
         self.Lines_num = 0
-
+        # Prepare some values..
         for col in self.Table:
             # Updates the table line count if necessary
             values = list(col.values())[0]
@@ -67,19 +75,22 @@ class pylsytable(object):
             # and also the table header
             key_length = max(key_length, self._disp_width(list(col.keys())[0]))
             self.AttributesLength.append(key_length)
+        # Do the real thing.
         self._print_head()
         self._print_value()
 
     def _print_head(self):
+        """Generates the table header."""
         self._print_divide()
         self.StrTable += "| "
         for colwidth, attr in zip(self.AttributesLength, self.Attributes):
             self.StrTable += self._pad_string(attr, colwidth * 2)
             self.StrTable += "| "
-        self.StrTable += ""+'\n'
+        self.StrTable += '\n'
         self._print_divide()
 
     def _print_value(self):
+        """Generates the table values."""
         for line in range(self.Lines_num):
             for col, length in zip(self.Table, self.AttributesLength):
                 vals = list(col.values())[0]
@@ -115,5 +126,6 @@ class pylsytable(object):
         return ' ' * prefix + str + ' ' * suffix
 
     def __str__(self):
+        """Returns a pretty-printed string representation of the table."""
         self._create_table()
         return self.StrTable
