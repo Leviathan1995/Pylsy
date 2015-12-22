@@ -1,0 +1,13 @@
+This file documents changes from version to version.
+
+v2.4, 2015-12-22 -- Run CI unit tests on Python 3 too, #34.
+- No significant change in final package. Perhaps it's time to use semver.org.
+
+v2.3, 2015-12-22 -- README update concerning Py2 and Unicode, #32, #33.
+
+v2.2, 2015-12-22 -- Unicode and docs from Arthur2e5, #30, #31.
+
+v2.1, 2015-09-05 -- Add `append_data` method from gnithin. #25.
+
+v0.1, 2015-08-09 -- Initial release.
+
