@@ -1,36 +1,42 @@
-#  Pylsy
+Pylsy
+=====
 
 [![Build Status](https://travis-ci.org/Leviathan1995/Pylsy.svg?branch=master)](https://travis-ci.org/Leviathan1995/Pylsy)
 
 Pylsy is a simple Python library for drawing tables in the terminal/console. Just two lines of code! 
 
- ![image](https://raw.githubusercontent.com/Leviathan1995/Pylsy/master/pzi/span.png)
+![Screenshot](https://raw.githubusercontent.com/Leviathan1995/Pylsy/master/pzi/span.png)
  
+Install
+-------
 
-<h2>Install</h2>
-       pip install pylsy
+    pip install pylsy
 
-<h2>Sample Usage</h2>
-<h6>At the very first start, pylsy needs to be imported</h6>
-       from pylsy import pylsytable
-<h6>First, you need to create a list, which will contain the table attributes</h6>
-       attributes=["name","age","sex","id","time"]
-<h6>In the second step, you need to use PylsyTable to create the ASCII table </h6>
-       table=pylsytable(attributes)
-<h6>Then, you need to populate the values for each attribute and add the values to the table. Populating the values for the attribute "name" is shown below</h6>
-       name=["sun","lsy","luna"]
-<h6>Then, add the values to the table </h6>
-       table.add_data("name",name)
-<h6>if you want to insert some values to the same column,you can pass string or list as a parameter</h6>
-       table.append_data("name","leviathan")
-     or
-       table.append_data("name",["leviathan"])
-<h6>After populating each attribute and adding the values to the table, you can create the ASCII table</h6>
-       print(table)
+Sample Usage
+------------
 
-<h2>License</h2>
-       MIT
+```Python
+# In the very first, pylsy needs to be imported
+from pylsy import pylsytable
+# First, you need to create a list, which will contain the table attributes:
+attributes=["name","age","sex","id","time"]
+# Then feed it to PylsyTable to create the table object:
+table=pylsytable(attributes)
+# Now populate the attributes with values. Prepare a list for the names:
+name=["sun","lsy","luna"]
+# Add the data into it:
+table.add_data("name",name)
+# If you want to insert some extra values to the same column,
+# you can pass a list as a parameter:
+table.append_data("name",["leviathan"])
+# Just a single value is OK too:
+table.append_data("name",u"小明") # Note: everything will be coerced to unicode strings.
+# Now with all your attributes and values, we can create our table:
+print(table)
+# With Python 2 things are a bit trickier, since str() is ascii-only:
+print(table.__str__()) # The raw unicode-enabled string. Think as `table.__unicode__()`.
+```
 
-
-
-
+License
+-------
+MIT
