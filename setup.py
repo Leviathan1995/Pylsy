@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 try:
     # Use setuptools if available, for install_requires (among other things).
     from setuptools import setup
@@ -7,6 +9,7 @@ except ImportError:
 setup(
     name='Pylsy',
     packages=['pylsy'],
+    install_requires=['wcwidth'],
     version='2.1',
     description='Pylsy is a simple library that draws tables in the Terminal.',
     author='leviathan',
