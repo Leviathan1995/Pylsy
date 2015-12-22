@@ -63,7 +63,7 @@ class pylsytable(object):
             values = list(col.values())[0]
             self.Lines_num = max(self.Lines_num, len(values))
             # find the length of longest value in current column
-            key_length = max([self._disp_width(value) for value in values] or [0])
+            key_length = max([self._disp_width(v) for v in values] or [0])
             # and also the table header
             key_length = max(key_length, self._disp_width(list(col.keys())[0]))
             self.AttributesLength.append(key_length)
