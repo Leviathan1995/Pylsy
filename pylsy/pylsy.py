@@ -17,7 +17,7 @@ class pylsytable(object):
         self.Lines_num = 0
         if type(attributes) != list:
             attributes = [attributes]
-        self.Attributes = attributes
+        self.Attributes = [u"{0}".format(attr) for attr in attributes]
         self.Cols_num = len(self.Attributes)
         for attribute in self.Attributes:
             col = dict()
