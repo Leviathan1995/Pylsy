@@ -12,13 +12,13 @@ class pylsytable(object):
 
     def __init__(self, attributes):
         self.StrTable = ""
-        self.Attributes = attributes
         self.Table = []
         self.AttributesLength = []
-        self.Cols_num = len(self.Attributes)
         self.Lines_num = 0
         if type(attributes) != list:
             attributes = [attributes]
+        self.Attributes = attributes
+        self.Cols_num = len(self.Attributes)
         for attribute in self.Attributes:
             col = dict()
             col[attribute] = []
