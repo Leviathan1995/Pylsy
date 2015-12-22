@@ -1,5 +1,7 @@
 This file documents changes from version to version.
 
+v2.5, 2015-12-22 -- Update CHANGES.txt #37
+
 v2.4, 2015-12-22 -- Run CI unit tests on Python 3 too, #34.
 - No significant change in final package. Perhaps it's time to use semver.org.
 
