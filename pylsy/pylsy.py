@@ -24,9 +24,7 @@ class pylsytable(object):
 
     def _print_divide(self):
         for space in self.AttributesLength:
-            self.StrTable += "+ "
-            for sign in range(space):
-                self.StrTable += "- "
+            self.StrTable += "+ " + "- " * space
         self.StrTable += "+"+"\n"
 
     def append_data(self, attribute, values):
@@ -42,10 +40,14 @@ class pylsytable(object):
                     col[attribute] += dict_values
 
     def add_data(self, attribute, values):
+        found = false
         for col in self.Table:
             if attribute in col:
                 dict_values = [u"{0}".format(value) for value in values]
                 col[attribute] = dict_values
+                found = true
+        if not found:
+            raise KeyError(attribute)
 
     def _create_table(self):
         self.StrTable = ""
@@ -57,9 +59,9 @@ class pylsytable(object):
             values = list(col.values())[0]
             self.Lines_num = max(self.Lines_num, len(values))
             # find the length of longest value in current column
-            key_length = max([len(value) for value in values] or [0])
+            key_length = max([self._disp_width(value) for value in values] or [0])
             # and also the table header
-            key_length = max(key_length, len(list(col.keys())[0]))
+            key_length = max(key_length, self._disp_width(list(col.keys())[0]))
             self.AttributesLength.append(key_length)
         self._print_head()
         self._print_value()
