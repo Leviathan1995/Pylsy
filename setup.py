@@ -12,8 +12,10 @@ setup(
     install_requires=['wcwidth'],
     version='2.4',
     description='Pylsy is a simple library that draws tables in the Terminal.',
+    long_description=open('README.md').read(),
     author='leviathan',
     author_email='leviathan1995@outlook.com',
     url='https://github.com/Leviathan1995/Pylsy',
+    license='MIT',
     test_suite='pylsy.tests',
 )
