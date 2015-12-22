@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Copyright (c) 2015 Pylsy Authors
+# For a full list of authors, see the AUTHORS file at
+# https://github.com/Leviathan1995/Pylsy/blob/master/AUTHORS.
+# @license MIT
 from __future__ import print_function
 from wcwidth import wcwidth
 
