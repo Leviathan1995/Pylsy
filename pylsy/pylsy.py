@@ -17,6 +17,8 @@ class pylsytable(object):
         self.AttributesLength = []
         self.Cols_num = len(self.Attributes)
         self.Lines_num = 0
+        if type(attributes) != list:
+            attributes = [attributes]
         for attribute in self.Attributes:
             col = dict()
             col[attribute] = []
@@ -28,24 +30,26 @@ class pylsytable(object):
         self.StrTable += "+"+"\n"
 
     def append_data(self, attribute, values):
-        values_type = type(values)
-        if values_type == str:
-            for col in self.Table:
-                if attribute in col:
-                    col[attribute].append(values)
-        elif values_type == list:
-            for col in self.Table:
-                if attribute in col:
-                    dict_values = [u"{0}".format(value) for value in values]
-                    col[attribute] += dict_values
+        found = False
+        if type(values) != list:
+            values = [values]
+        for col in self.Table:
+            if attribute in col:
+                dict_values = [u"{0}".format(value) for value in values]
+                col[attribute] += dict_values
+                found = True
+        if not found:
+            raise KeyError(attribute)
 
     def add_data(self, attribute, values):
-        found = false
+        found = False
+        if type(values) != list:
+            values = [values]
         for col in self.Table:
             if attribute in col:
                 dict_values = [u"{0}".format(value) for value in values]
                 col[attribute] = dict_values
-                found = true
+                found = True
         if not found:
             raise KeyError(attribute)
 
