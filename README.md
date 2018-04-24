@@ -16,7 +16,7 @@ Install
 Sample Usage
 ------------
 
-```Python3
+```python
 # In the very first, pylsy needs to be imported
 from pylsy import pylsytable
 
